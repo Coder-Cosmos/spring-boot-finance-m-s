@@ -34,6 +34,17 @@ public class SavingsGoalService {
         goal.setTargetDate(goalDto.getTargetDate());
         goal.setUser(user);
         
+        // Use startDate from DTO if provided, otherwise it will default to current date in entity
+        if (goalDto.getStartDate() != null) {
+            goal.setStartDate(goalDto.getStartDate());
+        }
+        
+        // Validate that start date is not after target date
+        if (goal.getStartDate() != null && goal.getTargetDate() != null && 
+            goal.getStartDate().isAfter(goal.getTargetDate())) {
+            throw new IllegalArgumentException("Start date cannot be after target date");
+        }
+        
         SavingsGoal savedGoal = savingsGoalRepository.save(goal);
         updateGoalProgress(savedGoal);
         

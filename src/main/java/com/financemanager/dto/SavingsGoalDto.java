@@ -5,23 +5,18 @@ import java.time.LocalDate;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Future;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 
 public class SavingsGoalDto {
     
     private Long id;
     
-    @NotBlank(message = "Goal name is required")
     private String goalName;
     
     @DecimalMin(value = "0.01", message = "Target amount must be positive")
-    @NotNull(message = "Target amount is required")
     private BigDecimal targetAmount;
     
     @Future(message = "Target date must be in the future")
-    @NotNull(message = "Target date is required")
     private LocalDate targetDate;
     
     private LocalDate startDate;

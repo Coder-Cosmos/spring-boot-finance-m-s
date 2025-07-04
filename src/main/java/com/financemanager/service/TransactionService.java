@@ -98,6 +98,7 @@ public class TransactionService {
         if (transactionDto.getDescription() != null) {
             transaction.setDescription(transactionDto.getDescription());
         }
+        // Note: Date field is intentionally ignored as per requirements
         
         Transaction savedTransaction = transactionRepository.save(transaction);
         

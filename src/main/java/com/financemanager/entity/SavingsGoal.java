@@ -50,7 +50,7 @@ public class SavingsGoal {
     @Column(nullable = false, precision = 15, scale = 2)
     private BigDecimal currentProgress = BigDecimal.ZERO;
     
-    @Column(nullable = false, precision = 5, scale = 2)
+    @Column(nullable = false, precision = 5, scale = 1)
     private BigDecimal progressPercentage = BigDecimal.ZERO;
     
     @Column(nullable = false, precision = 15, scale = 2)
@@ -78,7 +78,7 @@ public class SavingsGoal {
         if (targetAmount != null && currentProgress != null) {
             remainingAmount = targetAmount.subtract(currentProgress);
             if (targetAmount.compareTo(BigDecimal.ZERO) > 0) {
-                progressPercentage = currentProgress.divide(targetAmount, 4, RoundingMode.HALF_UP)
+                progressPercentage = currentProgress.divide(targetAmount, 1, RoundingMode.HALF_UP)
                                                   .multiply(new BigDecimal("100"));
             }
         }
@@ -147,7 +147,7 @@ public class SavingsGoal {
         if (targetAmount != null) {
             this.remainingAmount = targetAmount.subtract(currentProgress);
             if (targetAmount.compareTo(BigDecimal.ZERO) > 0) {
-                this.progressPercentage = currentProgress.divide(targetAmount, 4, RoundingMode.HALF_UP)
+                this.progressPercentage = currentProgress.divide(targetAmount, 1, RoundingMode.HALF_UP)
                                                         .multiply(new BigDecimal("100"));
             }
         }

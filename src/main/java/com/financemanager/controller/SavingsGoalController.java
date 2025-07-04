@@ -39,6 +39,17 @@ public class SavingsGoalController {
     public ResponseEntity<SavingsGoalDto> createSavingsGoal(@Valid @RequestBody SavingsGoalDto goalDto, 
                                                            HttpSession session) {
         try {
+            // Validate required fields for creation
+            if (goalDto.getGoalName() == null || goalDto.getGoalName().trim().isEmpty()) {
+                return ResponseEntity.badRequest().build();
+            }
+            if (goalDto.getTargetAmount() == null) {
+                return ResponseEntity.badRequest().build();
+            }
+            if (goalDto.getTargetDate() == null) {
+                return ResponseEntity.badRequest().build();
+            }
+            
             User user = getCurrentUser(session);
             SavingsGoalDto createdGoal = savingsGoalService.createSavingsGoal(goalDto, user);
             return ResponseEntity.status(HttpStatus.CREATED).body(createdGoal);

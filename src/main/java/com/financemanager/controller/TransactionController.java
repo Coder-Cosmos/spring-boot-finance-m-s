@@ -41,10 +41,25 @@ public class TransactionController {
     public ResponseEntity<TransactionDto> createTransaction(@Valid @RequestBody TransactionDto transactionDto, 
                                                            HttpSession session) {
         try {
+            // Validate required fields for creation
+            if (transactionDto.getAmount() == null) {
+                return ResponseEntity.badRequest().build();
+            }
+            if (transactionDto.getDate() == null) {
+                return ResponseEntity.badRequest().build();
+            }
+            if (transactionDto.getCategory() == null || transactionDto.getCategory().trim().isEmpty()) {
+                return ResponseEntity.badRequest().build();
+            }
+            
             User user = getCurrentUser(session);
             TransactionDto createdTransaction = transactionService.createTransaction(transactionDto, user);
             return ResponseEntity.status(HttpStatus.CREATED).body(createdTransaction);
         } catch (Exception e) {
+            // Return 400 for validation errors, 500 for unexpected errors
+            if (e.getMessage() != null && e.getMessage().contains("Date cannot be in the future")) {
+                return ResponseEntity.badRequest().build();
+            }
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }
