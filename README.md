@@ -13,6 +13,9 @@ A comprehensive personal finance management system built with Spring Boot 3.2, p
 - [Database Schema](#database-schema)
 - [Security](#security)
 - [Error Handling](#error-handling)
+- [Deployment](#deployment)
+- [License](#license)
+- [Contact](#contact)
 
 ## Features
 
@@ -51,15 +54,15 @@ A comprehensive personal finance management system built with Spring Boot 3.2, p
 
 ## Technology Stack
 
-| Component | Technology |
-|-----------|------------|
-| Programming Language | Java 17+ |
-| Framework | Spring Boot 3.2 |
-| Security | Spring Security (Session-based) |
-| Database | H2 (In-memory) |
-| Testing Framework | JUnit 5, Mockito |
-| Build Tool | Maven |
-| Validation | Jakarta Bean Validation |
+| Component            | Technology         |
+|----------------------|-------------------|
+| Programming Language | Java 17+          |
+| Framework            | Spring Boot 3.2   |
+| Security             | Spring Security (Session-based) |
+| Database             | H2 (In-memory)    |
+| Testing Framework    | JUnit 5, Mockito  |
+| Build Tool           | Maven             |
+| Validation           | Jakarta Bean Validation |
 
 ## Architecture
 
@@ -372,15 +375,15 @@ open target/site/jacoco/index.html
 
 ### HTTP Status Codes
 
-| Status Code | Description | Example Scenarios |
-|-------------|-------------|-------------------|
-| 200 OK | Success | Login successful, data retrieved |
-| 201 Created | Resource created | User registered, transaction created |
+| Status Code | Description         | Example Scenarios                 |
+|-------------|---------------------|-----------------------------------|
+| 200 OK      | Success             | Login successful, data retrieved  |
+| 201 Created | Resource created    | User registered, transaction created |
 | 400 Bad Request | Validation errors | Malformed input, validation failures |
 | 401 Unauthorized | Invalid credentials | Wrong password, expired session |
-| 403 Forbidden | Access denied | Accessing other user's data |
-| 404 Not Found | Resource not found | Non-existent transaction/goal |
-| 409 Conflict | Duplicate resource | Email/phone already exists |
+| 403 Forbidden | Access denied      | Accessing other user's data       |
+| 404 Not Found | Resource not found | Non-existent transaction/goal     |
+| 409 Conflict | Duplicate resource | Email/phone already exists        |
 
 ### Error Response Format
 ```json
@@ -417,8 +420,3 @@ This project is developed as part of an academic assignment and is intended for 
 ## Contact
 
 For questions or support, please contact the development team.
-#   s p r i n g - b o o t - f i n a n c e - m - s 
- 
- #   s p r i n g - b o o t - f i n a n c e - m - s 
- 
- 
