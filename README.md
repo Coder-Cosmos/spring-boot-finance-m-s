@@ -410,15 +410,3 @@ For production deployment:
 4. Configure HTTPS and secure session cookies
 5. Set up monitoring and health checks
 
-## License
-
-This project is developed as part of an academic assignment and is intended for educational purposes.
-
-## Contact
-
-For questions or support, please contact the development team.
-#   s p r i n g - b o o t - f i n a n c e - m - s 
- 
- #   s p r i n g - b o o t - f i n a n c e - m - s 
- 
- 
