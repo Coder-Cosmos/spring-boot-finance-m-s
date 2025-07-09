@@ -19,7 +19,8 @@
 #   ./finance_e2e_tests.sh "https://api.example.com"    # Custom base URL
 
 # Configuration
-DEFAULT_BASE_URL="http://localhost:8000/api"
+DEFAULT_BASE_URL="https://spring-boot-finance-m-s-production.up.railway.app/api"
+# DEFAULT_BASE_URL="http://localhost:8000/api"
 BASE_URL="${1:-$DEFAULT_BASE_URL}"
 
 # Generate unique timestamp for this test run to avoid conflicts

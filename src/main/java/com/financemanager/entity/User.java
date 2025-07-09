@@ -17,8 +17,7 @@ import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "users", uniqueConstraints = {
-    @UniqueConstraint(columnNames = "username"),
-    @UniqueConstraint(columnNames = "phoneNumber")
+    @UniqueConstraint(columnNames = "username")
 })
 public class User {
     
@@ -39,9 +38,9 @@ public class User {
     @Column(nullable = false)
     private String fullName;
     
-    @Pattern(regexp = "^\\+?[1-9]\\d{1,14}$", message = "Phone number must be valid")
+    @Pattern(regexp = "^\\+?\\d{1,15}$", message = "Phone number must be valid")
     @NotBlank(message = "Phone number is required")
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String phoneNumber;
     
     @Column(nullable = false)

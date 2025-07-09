@@ -30,17 +30,12 @@ public class UserService {
         if (userRepository.existsByUsername(registrationDto.getUsername())) {
             throw new DuplicateResourceException("Username already exists");
         }
-        
-        if (userRepository.existsByPhoneNumber(registrationDto.getPhoneNumber())) {
-            throw new DuplicateResourceException("Phone number already exists");
-        }
-        
+        // Phone number uniqueness check removed
         User user = new User();
         user.setUsername(registrationDto.getUsername());
         user.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
         user.setFullName(registrationDto.getFullName());
         user.setPhoneNumber(registrationDto.getPhoneNumber());
-        
         return userRepository.save(user);
     }
     
